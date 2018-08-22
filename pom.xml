@@ -22,6 +22,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<jms.api.version>2.0</jms.api.version>
+		<mq.version>8.0.0.6</mq.version>
 	</properties>
 
 	<dependencies>
@@ -43,6 +45,42 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>javax.jms-api</artifactId>
+			<version>${jms.api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.mq</groupId>
+			<artifactId>jmqi</artifactId>
+			<version>${mq.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.mq</groupId>
+			<artifactId>mqjms</artifactId>
+			<version>${mq.version}</version>
+		</dependency>
+
+
+		<!--<dependency>
+			<groupId>com.ibm.mq</groupId>
+			<artifactId>com.ibm.mq.allclient</artifactId>
+			<version>9.1.0.0</version>
+		</dependency>-->
+
+
+
+		<!-- JMS dependency -->
+
+
 	</dependencies>
 
 	<build>
@@ -54,5 +92,35 @@
 		</plugins>
 	</build>
 
+	<repositories>
+
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>shc.release</id>
+			<name>libs-release</name>
+			<url>http://obuartifactoryvip.prod.ch3.s.com/artifactory/libs-release</url>
+		</repository>
+
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<id>shc.snapshot</id>
+			<name>libs-snapshot</name>
+			<url>http://obuartifactoryvip.prod.ch3.s.com/artifactory/libs-snapshot</url>
+		</repository>
+
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<id>default</id>
+			<name>libs-release</name>
+			<url>https://repo.maven.apache.org/maven2/</url>
+		</repository>
+
+	</repositories>
 
 </project>

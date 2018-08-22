@@ -8,6 +8,14 @@ public class Customer {
     @Id
     public String id;
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
     public String firstName;
     public String lastName;
 
